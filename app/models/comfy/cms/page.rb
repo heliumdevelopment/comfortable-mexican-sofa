@@ -21,7 +21,7 @@ class Comfy::Cms::Page < ActiveRecord::Base
                     :escape_slug,
                     :assign_full_path
   before_create     :assign_position
-  after_save        :sync_child_full_paths!
+  after_save        :sync_child_full_paths!, :clear_page_cache
   after_find        :unescape_slug_and_path
 
   # -- Validations ----------------------------------------------------------
@@ -74,6 +74,15 @@ class Comfy::Cms::Page < ActiveRecord::Base
     else
       '//' + [self.site.hostname, public_cms_path, self.site.path, self.full_path].join('/').squeeze('/')
     end
+  end
+
+  # Flush the cached pages being saved to the server
+  def clear_page_cache
+    html_cache = Pathname.new("#{Rails.root}/public/#{full_path}.html")
+    html_cache.delete if html_cache.exist?
+
+    json_cache = Pathname.new("#{Rails.root}/public/#{full_path}.json")
+    json_cache.delete if json_cache.exist?
   end
 
 protected

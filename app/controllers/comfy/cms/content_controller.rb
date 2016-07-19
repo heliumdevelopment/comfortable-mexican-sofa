@@ -14,6 +14,8 @@ class Comfy::Cms::ContentController < Comfy::Cms::BaseController
 
   rescue_from ActiveRecord::RecordNotFound, :with => :page_not_found
 
+  caches_page :show
+
   def show
     if @cms_page.target_page.present?
       redirect_to @cms_page.target_page.url(:relative)
@@ -33,9 +35,8 @@ protected
 
   def render_page(status = 200)
     if @cms_layout = @cms_page.layout
-      app_layout = (@cms_layout.app_layout.blank? || request.xhr?) ? false : @cms_layout.app_layout
       render  :inline       => @cms_page.content_cache,
-              :layout       => app_layout,
+              :layout       => @cms_layout.app_layout,
               :status       => status,
               :content_type => mime_type
     else
