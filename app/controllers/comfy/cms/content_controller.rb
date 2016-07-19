@@ -14,7 +14,7 @@ class Comfy::Cms::ContentController < Comfy::Cms::BaseController
 
   rescue_from ActiveRecord::RecordNotFound, :with => :page_not_found
 
-  caches_page :show
+  caches_page :show, if: lambda { !current_user }
 
   def show
     if @cms_page.target_page.present?
