@@ -1,0 +1,124 @@
+.event
+  h2
+    color: $secondary-color
+    font-size: 2.5em
+    font-weight: 300
+    
+    select
+      width: auto
+      display: inline-block
+    
+  .event-time
+    margin: 20px 0
+    
+    .icon.calendar
+      height: 43px
+      float: left
+      margin-right: 10px
+      font-size: 1.2em
+    
+    h3
+      margin-bottom: 0
+      color: $secondary-color
+    
+    h4
+      font-weight: 300
+      margin-top: 0
+      color: lighten($dark-color, 20%)
+      
+      .hours-long
+        font-size: 0.9em
+        color: darken($light-color, 20%)
+        font-style: italic
+        
+  .featured-images
+    img
+      height: 50px
+      margin-right: 5px
+      +border-radius(2px)
+.event-form
+  textarea
+    width: 100%
+    height: 150px
+    
+.events
+  .date-range
+    font-weight: 300
+    text-align: center
+    font-size: 1em
+    font-style: italic
+  ul
+    padding: 0
+    margin: 0
+            
+.set-status
+  .checkbox
+    margin: 0
+    
+.event-images
+  .images
+    .image
+      display: inline-block
+      position: relative
+      margin: 5px
+      background: white
+      +border-box
+      width: calc(20% - 10px)
+      +border-radius(2px)
+      
+      &.loading
+        background: black !important
+        
+        img
+          opacity: 0.2
+          
+        .loader
+          display: block
+      
+      +scale-up("large")
+        width: calc(12.5% - 10px)
+      
+      img
+        width: 100%
+        
+      &.active
+        background: $primary-color
+        border: 6px solid $primary-color
+        
+        img
+          opacity: 0.5
+          
+.event
+  .experiences
+    .event-addons
+      padding-left: 20px
+      margin: 20px 0
+      
+      ul
+        margin-bottom: 20px
+        
+  .pricing-table
+    tr
+      &.discount
+        .price
+          color: darken($green, 15%)
+    td, th
+      &:last-child
+        text-align: right
+      
+      p
+        margin: 2px 0
+        color: $secondary-color
+        padding-left: 10px
+
+.right-column-content
+  .see-all-tasks
+    font-weight: normal
+    float: right
+    font-size: 0.9em
+    
+  .activity
+    p
+      margin: 0
+      font-size: 0.9em
+           

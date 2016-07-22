@@ -1,0 +1,152 @@
+@mixin align-middle {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  
+  >* {
+    vertical-align: middle;
+  }
+}
+
+@mixin upcase {
+  text-transform: uppercase;
+}
+
+@mixin aspect-ratio($x, $y, $percentage) {
+  @media (min-aspect-ratio: $x"/"$y) {
+    width: $percentage;
+    height: auto;
+  }
+  
+  @media (max-aspect-ratio: $x"/"$y) {
+    width: auto;
+    height: $percentage;
+  }
+}
+
+@mixin scale-as-ratio($percentage) {
+  padding-top: $percentage;
+
+  > *:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@mixin border-box {
+  box-sizing: border-box;
+}
+
+@mixin fadeIn {
+  @include keyframes(fadeIn) {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+@mixin background-4-3 {
+  background-size: 100% auto;
+  
+  @media (max-aspect-ratio: 4/3) {
+    background-size: auto 100%;
+  }
+    
+}
+
+@mixin border-radius($size) {
+  @include border-top-radius($size);
+  @include border-bottom-radius($size);
+}
+
+@mixin button {
+  outline: none;
+  background: transparent;
+  border: 2px solid $dark-color;
+  padding: 10px 14px;
+  font-size: 0.9em;
+  color: $dark-color;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  @include upcase;
+  @include border-radius(2px);
+}
+
+@mixin scale-as-ratio($percentage) {
+  position: relative;
+  padding-top: $percentage;
+
+  > *:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@mixin text-field {
+  padding: 12px 15px;
+  @include border-radius(2px);
+  @include border-box;
+  border: 1px solid darken($water-color, 50%);
+  color: $dark-color;
+  outline: none;
+  font-family: $font;
+  background: transparent;
+  transition: border-color 0.2s ease;
+  
+  &:hover {
+    border-color: darken($water-color, 70%);
+  }
+  &:focus {
+    color: black;
+    border-color: $primary-color;
+  }
+}
+
+@mixin product-point-static {
+  padding-top: 0;
+  
+  > div {
+    position: static;
+  }
+    
+  .product-point-content {
+    height: auto;
+    position: static;
+    
+    section {
+      position: static;
+      margin: auto;
+    }
+  }
+  
+  .hero {
+    position: static;
+  }
+}
+
+@mixin variable-width($parent, $child, $ending) {
+  @for $i from 1 through $ending {
+    #{$parent}[data-steps="#{$i + 1}"] {
+      #{$child} {
+        width: percentage(1/$i);
+      }
+    }
+  }
+}

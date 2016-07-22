@@ -1,0 +1,30 @@
+$primary-color: red;
+$light-color: #ccc;
+$green: #53D27B;
+$red: #C34343;
+$dark-color: black;
+$water-color: rgba(255,255,255,0.2);
+$ultra-light-color: #f6f6f6;
+$soft-color: #eee;
+$nprogress-height: 3px;
+$nprogress-color: $primary-color;
+
+@import "nprogress";
+
+/* Mixins */
+@import "bourbon/bourbon";
+@import "admin/mixins";
+
+/* Fonts */
+@import "admin/fonts";
+
+/* Base */
+@import "admin/buttons";
+@import "admin/form-elements";
+@import "admin/layout";
+
+/* Modules */
+@import "admin/modules";
+
+/* Views */
+@import "admin/views/redirect";

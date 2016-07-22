@@ -1,0 +1,54 @@
+textarea
+  border: 1px solid darken($water-color, 30%)
+  color: $dark-color
+  outline: none
+  font-family: $font
+  background: transparent
+  padding: 10px
+  transition: border-color 0.2s ease
+  +border-radius(2px)
+
+  &:hover
+    border-color: darken($water-color, 70%)
+  &:focus
+    color: black
+    border-color: $primary-color
+
+
+form.ui.form
+  input[type=text], input[type=search], input[type=email], input[type=password], input[type=number], input[type=tel]
+    
+    &:focus
+      border-color: $primary-color
+
+  .field_with_errors
+    width: 100%
+    
+    input, textarea, select
+      border-color: $red
+      background: #FFEEEE
+      width: 100% !important
+      
+  .field.labeled
+    input
+      +border-left-radius(0)
+      
+  .input-group.date, .input-group.timetampse, .input-group.date-no-default
+    input
+      +border-right-radius(0)
+      
+.btn
+  &.btn-default
+    &:hover
+      background: none
+      
+  &.btn-primary
+    background: $primary-color
+    color: white
+    border-color: $primary-color
+    
+    &:hover
+      background: lighten($primary-color, 10%)
+      
+.redactor-box textarea
+  background: white

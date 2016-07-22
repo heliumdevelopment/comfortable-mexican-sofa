@@ -1,0 +1,169 @@
+h1, h2
+  letter-spacing: normal
+
+.gravatar
+  vertical-align: middle
+
+  &.tiny
+    height: 20px
+    border-radius: 20px
+
+  &.small
+    height: 30px
+    border-radius: 30px
+
+  &.medium
+    height: 40px
+    border-radius: 40px
+
+  &.large
+    height: 50px
+    border-radius: 50px
+
+.align-middle
+  vertical-align: middle
+
+.users
+  margin: 0
+  padding: 0
+
+  li
+    margin: 15px 0
+    list-style-type: none
+    font-size: 1.1em
+
+    .gravatar
+      margin-right: 10px
+
+.tiny
+  font-size: 11px
+  font-weight: 300
+  color: gray
+  font-style: italic
+
+
+.alert
+  color: white
+  font-weight: 500
+  letter-spacing: 0.5px
+
+  &.alert-notice, &.alert-success
+    background: $green
+
+  &.alert-error
+    background: $red
+
+
+.page-notices
+  margin: 0
+  padding: 0
+
+  li
+    margin: 0
+    padding: 30px
+    text-align: center
+    list-style-type: none
+    border-radius: 0
+
+    &.notice
+      background: $green
+      color: white
+
+    &.alert
+      background: $red
+      color: white
+
+
+.form-horizontal
+  .form-group
+    margin-top: 10px
+
+  select
+    margin-top: 10px
+
+.form-actions
+  margin-top: 20px
+
+.page-header
+  h2, h3
+    margin: 0
+
+  & > h3
+    font-weight: 200
+    color: $soft-color
+    font-size: 1.1em
+    letter-spacing: 2px
+
+  & > h2
+    font-weight: 300
+
+.pagination
+  text-align: center
+  display: block
+  margin: 30px 0
+
+  .previous_page, .next_page, a, .current
+    padding: 5px 10px
+    +upcase
+    +border-radius(2px)
+    color: $dark-color
+    text-decoration: none
+    font-size: 0.9em
+
+    &.current
+      background: $dark-color
+      color: white
+
+    &.previous_page, &.next_page
+      border: none
+
+      &.disabled
+        color: $light-color
+
+.space-header
+  margin-top: 0
+  +upcase
+  font-weight: 300
+  letter-spacing: 1px
+  font-size: 1em
+  color: $light-color
+  margin-bottom: 15px
+
+.redactor-toolbar
+  a
+    font-family: 'RedactorFont'
+
+.red
+  color: $red
+
+.green
+  color: $green
+
+.thin
+  font-weight: 300
+
+table.gridly
+  width: 100%
+
+  thead
+    +upcase
+    color: $light-color
+    font-weight: bold
+    letter-spacing: 1px
+
+  td
+    padding: 10px
+
+.lite
+  color: $light-color
+  font-style: italic
+  font-weight: 300
+  font-size: 0.8em
+
+.mandrill-preview-form
+  footer
+    text-align: center
+    padding: 40px 0
+
+.float-right
+  float: right

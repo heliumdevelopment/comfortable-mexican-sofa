@@ -1,0 +1,43 @@
+a.button, button, input[type="submit"], input[type="button"]
+  +button
+  display: inline-block
+
+  &.fixed-width
+    width: 170px
+
+  &.small-button
+    padding: 6px 10px
+    font-size: 0.9em
+
+  &.cta-button
+    background: $primary-color
+    border-color: $primary-color
+    color: white
+
+  &.link-button
+    background: transparent
+    border-color: $dark-color
+    color: $dark-color
+
+    &:hover
+      border-color: black
+      color: black
+
+    &.light-button
+      border-color: lighten($light-color, 10%)
+      color: lighten($light-color, 10%)
+
+      &:hover
+        border-color: $primary-color
+
+  &:disabled
+    opacity: 0.6
+
+  &.harmful-button
+    border-color: $red
+    color: $red
+
+    &:hover
+      background: $red
+      border-color: $red
+      color: white

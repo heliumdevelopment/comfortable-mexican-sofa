@@ -1,0 +1,106 @@
+body#comfy .body-wrapper .right-column .right-column-content
+  background: white
+  border-left: 1px solid $light-color
+  overflow-y: auto
+
+  .destroy-actions
+    position: absolute
+    bottom: 20px
+    width: 100%
+    text-align: center
+    color: white
+
+    input[type="submit"]
+      color: $red
+      border-color: $red
+
+body#comfy.c-comfy-admin-blog-posts.a-edit,
+body#comfy.c-comfy-admin-cms-pages.a-edit,
+body#comfy.c-admin-events.a-images
+  .center-column
+    margin: 0px 0 0px 175px
+
+body#comfy .body-wrapper .center-column
+  background: lighten($ultra-light-color, 2%)
+  min-height: 100vh
+.bit
+  margin: 10px 0
+  background: white
+  padding: 10px
+  border-bottom: 2px solid $light-color
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.1)
+  +border-radius(2px)
+  +border-box
+
+.navigation
+  .label
+    text-align: center
+    color: $water-color
+    letter-spacing: 0.1em
+    font-weight: 300
+    display: block
+    +upcase
+    margin: 20px 0 10px 0
+
+  li:first-of-type
+    .label
+      margin: 0
+
+.ui.form
+  font-size: 1em
+
+.backend
+  background: #F7F7F7
+
+  header
+    text-align: center
+    padding-top: 80px
+
+    .logo
+      height: 100px
+
+  .center-bit
+    margin: 30px auto
+    max-width: 450px
+    background: white
+    border: 1px solid darken($water-color, 15%)
+    +border-box
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.03)
+    padding: 20px
+    text-align: center
+    +border-radius(2px)
+
+    h2
+      font-weight: 300
+      margin: 0 0 10px 0
+      padding-bottom: 10px
+      border-bottom: 1px solid $water-color
+      font-size: 2em
+      text-align: center
+
+    .contents
+      display: inline-block
+      text-align: left
+
+      .actions
+        text-align: center
+
+    .link-actions
+      margin-top: 20px
+      text-align: right
+
+    #error_explanation
+      h2
+        font-size: 1em
+        font-weight: normal
+        color: $red
+
+      ul
+        padding: 0
+
+        li
+          margin: 0
+          padding: 5px
+          +border-radius(2px)
+          color: white
+          background: $red
