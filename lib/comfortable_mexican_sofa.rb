@@ -1,3 +1,6 @@
+require 'devise'
+require 'actionpack/page_caching'
+
 # Loading engine only if this is not a standalone installation
 unless defined? ComfortableMexicanSofa::Application
   require_relative 'comfortable_mexican_sofa/engine'

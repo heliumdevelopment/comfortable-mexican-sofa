@@ -44,6 +44,10 @@ module Comfy
           'app/assets/stylesheets/comfy/admin/cms/custom.sass'
       end
 
+      def install_devise
+        generate("devise:install")
+      end
+
       def show_readme
         readme 'lib/generators/comfy/cms/README'
       end
