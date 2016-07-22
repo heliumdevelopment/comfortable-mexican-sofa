@@ -49,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.destroy
     set_flash_message :notice, :destroyed if is_flashing_format?
     yield resource if block_given?
-    if resource == current_user
+    if resource == current_comfy_user
       Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
       respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
     else

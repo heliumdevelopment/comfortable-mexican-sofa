@@ -1,4 +1,6 @@
-class User < ActiveRecord::Base
+class Comfy::User < ActiveRecord::Base
+  self.table_name = "comfy_users"
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 

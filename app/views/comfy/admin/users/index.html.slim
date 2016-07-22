@@ -1,0 +1,16 @@
+.page-header
+  .pull-right
+    = link_to "Edit Your Account", edit_user_registration_path({id: current_comfy_user.id}), class: "btn btn-default"
+    - if can? :manage, :users
+      =< link_to "New User", :new_user_registration, class: "btn btn-default"
+  h2
+    i.users.icon
+    | Users
+.bit
+  ul.users
+    - @users.each do |user|
+      li
+        = gravatar(user, "small")
+        = link_to user.full_name, admin_user_path(user)
+        span.tiny<
+          =  user.role

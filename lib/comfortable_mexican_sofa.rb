@@ -1,6 +1,8 @@
 require 'devise'
 require 'actionpack/page_caching'
 require 'cancan'
+require 'slim'
+require 'gravtastic'
 
 # Loading engine only if this is not a standalone installation
 unless defined? ComfortableMexicanSofa::Application

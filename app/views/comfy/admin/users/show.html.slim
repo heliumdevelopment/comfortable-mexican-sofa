@@ -1,0 +1,30 @@
+.page-header
+  - if can? :manage, @user
+    = link_to "Edit", edit_user_registration_path({id:@user.id}), class: "btn btn-default pull-right"
+  h2
+    = gravatar(@user, "large")
+    span.align-middle<
+      = @user.full_name
+    span.tiny<
+      = @user.role
+  p
+    | Last signed in 
+    strong
+      = time_since(@user.last_sign_in_at)
+div.bit
+  p
+    strong
+      | Email: 
+    = link_to @user.email, "mailto:#{@user.email}"
+- if @user == current_comfy_user
+  = active_link_to 'Sign Out', destroy_user_session_path, method: :delete
+
+h4 Events   
+- if @events.count > 0
+  .events
+    ul
+      - @events.each do |event|
+        = render 'admin/events/event', event: event
+- else
+  p.bit
+    | No events.

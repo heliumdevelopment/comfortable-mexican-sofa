@@ -20,8 +20,8 @@ module ComfortableMexicanSofa::AccessControl
 
     # Devis authenticate
     def authenticate
-      if current_user
-        ability = Ability.new(current_user)
+      if current_comfy_user
+        ability = Ability.new(current_comfy_user)
         return true if ability.can?(:manage, "Cms::Site")
         raise CanCan::AccessDenied
         true
