@@ -48,6 +48,18 @@ module Comfy
         generate("devise:install")
       end
 
+      def generate_extended_migration
+        destination   = File.expand_path('db/migrate/extend_users.rb', self.destination_root)
+        migration_dir = File.dirname(destination)
+        destination   = self.class.migration_exists?(migration_dir, 'extend_users')
+
+        if destination
+          puts "\e[0m\e[31mFound existing extend_users.rb migration. Remove it if you want to regenerate.\e[0m"
+        else
+          migration_template 'db/migrate/extend_users.rb', 'db/migrate/extend_users.rb'
+        end
+      end
+
       def show_readme
         readme 'lib/generators/comfy/cms/README'
       end

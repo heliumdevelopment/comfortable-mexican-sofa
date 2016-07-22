@@ -3,8 +3,19 @@ class ActionDispatch::Routing::Mapper
   def comfy_route_cms_admin(options = {})
     options[:path] ||= 'admin'
 
+    devise_for :users, path: 'admin/users',
+                 controllers: {
+                   registrations: "users/registrations",
+                   sessions: "users/sessions"
+                  }
+
     scope :module => :comfy, :as => :comfy do
       scope :module => :admin do
+        controller :users do
+          get 'users' => 'users#index'
+          get 'new_user' => 'users#new'
+          get 'users/account/:id' => 'users#show', as: :user
+        end
         namespace :cms, :as => :admin_cms, :path => options[:path], :except => :show do
           get '/', :to => 'base#jump'
           resources :sites do
