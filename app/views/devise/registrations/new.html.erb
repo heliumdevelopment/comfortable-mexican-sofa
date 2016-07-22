@@ -1,0 +1,27 @@
+<h2>Create a New User</h2>
+<div class="contents">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <% password = (0...8).map { ('a'..'z').to_a[rand(26)] }.join %>
+    <%= f.hidden_field :password, value: password %>
+    <%= f.hidden_field :password_confirmation, value: password %>
+    <div class="field">
+      Account Type: <%= user_type_select(resource) %>
+    </div>
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create User", class: "cta-button" %>
+    </div>
+  <% end %>
+</div>

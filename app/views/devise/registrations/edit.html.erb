@@ -1,0 +1,41 @@
+<h2>Edit <%= @resource.full_name %></h2>
+<div class="contents">
+  <% if @resource.nil? %>
+    <% @resource = resource %>
+  <% end %>
+
+  <%= form_for(@resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :id %>
+    <div class="field">
+      Account Type: <%= user_type_select(@resource) %>
+    </div>
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+  <% end %>
+</div>
+<div class="link-actions">
+  <%= link_to "Back", :back %>
+</div>
+<hr>
+<br>
+<%= form_tag(registration_path(resource_name), method: "delete") do |f| %>
+  <input type="hidden" name="id" value="<%= @resource.id %>">
+  <input type="submit" class="harmful-button" data-confirm="Hey are you crazy! Are you sure?" value="Delete Account">
+<% end %>

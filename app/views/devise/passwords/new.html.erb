@@ -1,0 +1,18 @@
+<h2>Forgot your password?</h2>
+<div class="contents">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <p>Maybe you should use <a href="https://agilebits.com/onepassword">1Password</a> next time. </p>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions" %>
+    </div>
+  <% end %>
+</div>
+<div class="link-actions">
+  <%= link_to "Back to sign in", :new_user_session %>
+</div>
