@@ -28,7 +28,7 @@ module ComfortableMexicanSofa::AccessControl
       else
         scope = Devise::Mapping.find_scope!(:user)
         session["#{scope}_return_to"] = comfy_admin_cms_path
-        redirect_to new_user_session_path
+        redirect_to new_comfy_user_session_path
       end
     end
   end

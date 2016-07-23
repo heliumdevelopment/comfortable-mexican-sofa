@@ -1,6 +1,14 @@
 module Comfy
   module CmsHelper
 
+    def time_since(time)
+     if time
+       time_ago_in_words(time) + " ago"
+     else
+       "never"
+     end
+   end
+   
     # Wrapper around ComfortableMexicanSofa::FormBuilder
     def comfy_form_for(record, options = {}, &proc)
       options[:builder] = ComfortableMexicanSofa::FormBuilder
