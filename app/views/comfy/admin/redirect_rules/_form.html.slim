@@ -1,0 +1,30 @@
+.redirect-form
+  = form_for(redirect, url: new_or_edit_redirect_rule_path(redirect), html: { class: "ui form" }) do |f|
+    .field
+      label
+        | Old Path
+      .field.ui.labeled.input
+        .ui.label
+          = @path
+        = f.text_field(:source, placeholder: "your-mom/goes/")
+        
+      .field
+        label
+          | New Path
+        .field.ui.labeled.input
+          .ui.label
+            = @path
+          = f.text_field(:destination, placeholder: "to/college")
+          
+      .two.fields
+        .field
+          label
+            = f.check_box(:active, checked: true)
+            |  Active
+            
+        .field
+          label
+            = f.check_box(:source_is_regex)
+            |  Regex
+    = f.submit "Save Redirect", class: "cta-button"
+    

@@ -1,0 +1,21 @@
+.page-header
+  = link_to "New Redirect", :new_comfy_redirect_rule, class: "btn btn-default pull-right"
+  h2
+    i.forward.mail.icon
+    | Redirects
+
+.redirects
+  table.ui.table.celled
+    thead
+      tr
+        th Old Path
+        th New Path
+        th Active
+    tbody
+      - for redirect in @redirects
+        tr
+          td
+            = link_to redirect.source, edit_comfy_redirect_rule_path(redirect)
+          td = redirect.destination
+          td = redirect.active
+  = will_paginate(@redirects)

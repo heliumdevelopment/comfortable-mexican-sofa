@@ -1,0 +1,9 @@
+.page-header
+  h2
+    | Edit Redirect
+= render 'form', redirect: @redirect
+
+- content_for :right_column do
+  .destroy-actions
+    = form_for(@redirect, url: comfy_redirect_rule_path(@redirect), method: "delete") do |f|
+      = f.submit "Delete Redirect"

@@ -3,11 +3,11 @@ class ActionDispatch::Routing::Mapper
   def comfy_route_cms_admin(options = {})
     options[:path] ||= 'admin'
 
-      devise_for 'comfy/users', :path => 'admin/users',
-                   controllers: {
-                     registrations: "users/registrations",
-                     sessions: "users/sessions"
-                    }
+    devise_for 'comfy/users', :path => 'admin/users',
+                 controllers: {
+                   registrations: "users/registrations",
+                   sessions: "users/sessions"
+                  }
 
     scope :module => :comfy, :as => :comfy do
 
@@ -17,6 +17,9 @@ class ActionDispatch::Routing::Mapper
           get 'new_user' => 'users#new'
           get 'users/account/:id' => 'users#show', as: :user
         end
+
+        resources :redirect_rules
+
       end
 
 

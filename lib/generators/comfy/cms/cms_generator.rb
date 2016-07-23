@@ -48,6 +48,10 @@ module Comfy
         generate("devise:install")
       end
 
+      def install_redirector
+        rake("redirector_engine:install:migrations")
+      end
+
       def generate_users_migration
         destination   = File.expand_path('db/migrate/02_devise_create_comfy_users.rb', self.destination_root)
         migration_dir = File.dirname(destination)

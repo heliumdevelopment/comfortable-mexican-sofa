@@ -5,6 +5,8 @@ require 'slim'
 require 'gravtastic'
 require 'nprogress-rails'
 require 'semantic-ui-sass'
+require 'redirector'
+require 'will_paginate'
 
 # Loading engine only if this is not a standalone installation
 unless defined? ComfortableMexicanSofa::Application
