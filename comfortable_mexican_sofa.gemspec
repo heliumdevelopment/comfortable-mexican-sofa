@@ -39,4 +39,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'slim'
   s.add_dependency 'gravtastic'
   s.add_dependency 'nprogress-rails'
+  s.add_dependency 'semantic-ui-sass'
+
 end

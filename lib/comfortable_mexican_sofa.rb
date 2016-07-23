@@ -4,6 +4,7 @@ require 'cancan'
 require 'slim'
 require 'gravtastic'
 require 'nprogress-rails'
+require 'semantic-ui-sass'
 
 # Loading engine only if this is not a standalone installation
 unless defined? ComfortableMexicanSofa::Application

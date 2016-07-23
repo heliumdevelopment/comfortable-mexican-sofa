@@ -1,4 +1,4 @@
-$primary-color: red;
+$primary-color: #1a90c6;
 $light-color: #ccc;
 $green: #53D27B;
 $red: #C34343;
@@ -10,6 +10,7 @@ $nprogress-height: 3px;
 $nprogress-color: $primary-color;
 
 @import "nprogress";
+@import "semantic-ui";
 
 /* Mixins */
 @import "bourbon/bourbon";

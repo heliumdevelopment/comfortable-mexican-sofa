@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag 'comfy/admin/cms/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="backend">
+  <% if flash.any? %>
+    <ul class="page-notices">
+      <% flash.each do |notice| %>
+        <li class="<%= notice[0] %>"><%= notice[1] %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <header>
+  </header>
+  <div class="center-bit">
+    <%= yield %>
+  </div>
+</body>
+</html>

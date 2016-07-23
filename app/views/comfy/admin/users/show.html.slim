@@ -8,12 +8,12 @@
     span.tiny<
       = @user.role
   p
-    | Last signed in
+    ' Last signed in
     strong
       = time_since(@user.last_sign_in_at)
 div.bit
   p
     strong Email:
-    = link_to @user.email, "mailto:#{@user.email}"
+    =< link_to @user.email, "mailto:#{@user.email}"
 - if @user == current_comfy_user
   = active_link_to 'Sign Out', destroy_comfy_user_session_path, method: :delete

@@ -1,0 +1,62 @@
+= render 'comfy/admin/cms/partials/navigation_before'
+
+ul.navigation
+  - if @site && !@site.new_record?
+    - if can? :manage, :layouts
+      li
+        .label Website
+      li
+        a.cms-files-open-modal
+          i.block.layout.icon
+        = active_link_to t('comfy.admin.cms.base.layouts'), comfy_admin_cms_site_layouts_path(@site)
+
+    - if can? :manage, :pages
+      li
+        a.cms-files-open-modal
+          i.file.icon
+        = active_link_to t('comfy.admin.cms.base.pages'), comfy_admin_cms_site_pages_path(@site)
+
+    - if can? :manage, :snippets
+      li
+        a.cms-files-open-modal
+          i.cubes.icon
+        = active_link_to t('comfy.admin.cms.base.snippets'), comfy_admin_cms_site_snippets_path(@site)
+
+    - if can? :manage, :files
+      li
+        a.cms-files-open-modal
+          i.folder.open.icon
+        = active_link_to t('comfy.admin.cms.base.files'), comfy_admin_cms_site_files_path(@site)
+    - if can? :read, :users
+     li
+       a.cms-files-open-modal
+         i.users.icon
+       = active_link_to 'Users', :comfy_users
+
+/    - if can? :read, Setting
+/      li
+/        a.cms-files-open-modal
+/          i.setting.icon
+/        = active_link_to 'Settings', :admin_settings, active: :exact
+/
+/        - if request.path.include? "admin/settings"
+/          ul
+/            - if can? :read, :users
+/              li
+/                a.cms-files-open-modal
+/                  i.users.icon
+/                = active_link_to 'Users', :admin_users
+/            li
+/              a.cms-files-open-modal
+/                i.forward.mail.icon
+/              = active_link_to 'Redirects', :admin_redirect_rules
+/
+/    li
+/      a.cms-files-open-modal
+/        i.dashboard.icon
+/      = active_link_to 'Dashboard', :admin_dashboard
+
+
+
+  = cms_hook :navigation
+= render 'comfy/admin/cms/partials/navigation_after'
