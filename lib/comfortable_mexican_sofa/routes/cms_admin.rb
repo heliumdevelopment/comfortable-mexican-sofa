@@ -20,6 +20,11 @@ class ActionDispatch::Routing::Mapper
 
         resources :redirect_rules
 
+        controller :settings do
+          get 'settings' => 'settings#index', as: :settings
+          put 'settings' => 'settings#update'
+          put 'settings/flush-page-cache' => 'settings#flush_pages_cache'
+        end
       end
 
 

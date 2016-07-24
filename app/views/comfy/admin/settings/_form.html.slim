@@ -1,0 +1,6 @@
+= form_for(@setting, url: comfy_settings_path, method: :put, html: { class: "ui form" }) do |f|
+  h3 SEO Settings
+  .ui.field
+    label Site Title
+    = f.text_field :site_title
+  = f.submit "Save"

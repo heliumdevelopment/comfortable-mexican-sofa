@@ -1,0 +1,7 @@
+.page-header
+  = link_to "Flush Cache", :comfy_settings_flush_page_cache, method: "put", class: "btn btn-default pull-right"
+  h2
+    i.setting.icon
+    | Settings
+.settings.bit
+  = render 'form'
