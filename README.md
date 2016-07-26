@@ -36,3 +36,26 @@ comfy_route :cms, :path => '/', :sitemap => false
 ```
 
 If you get an `Invalid route name` error, look inside your route file to see if there's already the CMS route being duplicated.
+
+Add to `application_controller.rb`
+```
+alias_method :current_user, :current_comfy_user
+
+layout :layout_by_resource
+
+protected
+
+def layout_by_resource
+  if devise_controller?
+    "comfy/backend"
+  else
+    "application"
+  end
+end
+```
+
+## Adding settings
+Within the `comfortable_mexican_sofa.rb`, add:
+```
+config.settings = %w( site_title )
+```

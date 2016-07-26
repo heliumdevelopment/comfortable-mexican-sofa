@@ -27,35 +27,23 @@ ul.navigation
         a.cms-files-open-modal
           i.folder.open.icon
         = active_link_to t('comfy.admin.cms.base.files'), comfy_admin_cms_site_files_path(@site)
+    li
+      .label Preferences
     - if can? :read, :users
      li
        a.cms-files-open-modal
          i.users.icon
        = active_link_to 'Users', :comfy_users
-
-/    - if can? :read, Setting
-/      li
-/        a.cms-files-open-modal
-/          i.setting.icon
-/        = active_link_to 'Settings', :comfy_settings, active: :exact
-/
-/        - if request.path.include? "admin/settings"
-/          ul
-/            - if can? :read, :users
-/              li
-/                a.cms-files-open-modal
-/                  i.users.icon
-/                = active_link_to 'Users', :admin_users
-/            li
-/              a.cms-files-open-modal
-/                i.forward.mail.icon
-/              = active_link_to 'Redirects', :comfy_redirect_rules
-/
-/    li
-/      a.cms-files-open-modal
-/        i.dashboard.icon
-/      = active_link_to 'Dashboard', :admin_dashboard
-
+    - if can? :read, RedirectRule
+     li
+       a.cms-files-open-modal
+         i.forward.mail.icon
+       = active_link_to 'Redirects', :comfy_redirect_rules
+    - if can? :read, Comfy::Setting
+      li
+        a.cms-files-open-modal
+          i.setting.icon
+        = active_link_to 'Settings', :comfy_settings, active: :exact
 
 
   = cms_hook :navigation
