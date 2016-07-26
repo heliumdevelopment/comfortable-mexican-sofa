@@ -1,6 +1,18 @@
 module Comfy
   module CmsHelper
 
+    def cms_template
+      if @cms_page
+        "template-#{@cms_page.slug}"
+      end
+    end
+
+    def cms_layout
+      if @cms_page
+        @cms_page.layout.identifier
+      end
+    end
+
     def time_since(time)
      if time
        time_ago_in_words(time) + " ago"
@@ -8,7 +20,7 @@ module Comfy
        "never"
      end
    end
-   
+
     # Wrapper around ComfortableMexicanSofa::FormBuilder
     def comfy_form_for(record, options = {}, &proc)
       options[:builder] = ComfortableMexicanSofa::FormBuilder

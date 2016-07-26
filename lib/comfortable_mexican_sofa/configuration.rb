@@ -124,7 +124,7 @@ class ComfortableMexicanSofa::Configuration
     @hostname_aliases     = nil
     @reveal_cms_partials  = false
     @public_cms_path      = nil
-    @settings             = []
+    @settings             = %w( site_title site_description )
   end
 
 end
