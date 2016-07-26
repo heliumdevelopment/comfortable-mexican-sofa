@@ -1,0 +1,31 @@
+#phrasing
+  .text-options#zenpenbubble
+    .options
+      span.no-overflow
+        span.lengthen.ui-inputs
+          button.url.useicons
+            ' &supdsub;
+          input.url-input placeholder="Type or Paste URL here" type="text"
+          button.bold b
+          button.italic i
+
+  #phrasing-edit-mode-bubble
+    a.admin-link href="/admin" target="_blank"
+      = @settings.site_title
+    .controls
+      form action=comfy_cms_expire_template_path method="post" id= "expire-template"
+        input type="hidden" name="_method" value="put"
+        input type="hidden" name="path" value=request.path
+      #phrasing-edit-mode
+        label.toggle-switch
+          span Edit
+          input#edit-mode-onoffswitch.onoffswitch-checkbox checked="checked" name="onoffswitch" type="checkbox"
+          .toggle-checkbox
+            i.circle
+      #phrasing-saved-status
+        #phrasing-saved-status-headline>
+          p Saved
+        ' -
+        = link_to ' Edit All', :phrasing_phrases
+      = form_tag destroy_comfy_user_session_path, method: :delete, class: "hide-admin" do
+        input type="submit" value="-"

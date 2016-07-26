@@ -1,4 +1,5 @@
 class Comfy::Cms::ContentController < Comfy::Cms::BaseController
+  protect_from_forgery except: :expire_template
 
   # Authentication module must have `authenticate` method
   include ComfortableMexicanSofa.config.public_auth.to_s.constantize
@@ -31,6 +32,15 @@ class Comfy::Cms::ContentController < Comfy::Cms::BaseController
     render
   end
 
+  def expire_template
+    expire_page(params[:path])
+
+    render json: { message: "Expired #{params[:path]}" }
+  end
+
+  def admin_editable
+    render json: current_user && current_comfy_user.manager?
+  end
 protected
 
   def render_page(status = 200)

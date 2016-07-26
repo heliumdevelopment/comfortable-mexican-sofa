@@ -7,6 +7,7 @@ require 'nprogress-rails'
 require 'semantic-ui-sass'
 require 'redirector'
 require 'will_paginate'
+require 'phrasing'
 
 # Loading engine only if this is not a standalone installation
 unless defined? ComfortableMexicanSofa::Application
