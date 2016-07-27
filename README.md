@@ -55,7 +55,19 @@ end
 ```
 
 ## Adding settings
+
 Within the `comfortable_mexican_sofa.rb`, add:
 ```
 config.settings = %w( site_title )
 ```
+
+## Adding templates
+
+If you want to add custom templates, add an item to the routes file for that template like:
+```
+controller :templates do
+  get 'about', :action => 'about'
+end
+```
+
+Then add `app/views/templates/about.slim`
