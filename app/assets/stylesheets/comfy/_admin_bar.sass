@@ -1,0 +1,131 @@
+$green: #6cc735
+
+#phrasing
+  display: none
+
+body.admin
+  margin-top: 35px
+
+  #phrasing
+    display: block
+
+#phrasing-edit-mode-bubble
+  position: fixed
+  font-size: 0.9em
+  width: 100%
+  background: #333
+  color: white
+  z-index: 400
+  top: 0
+  padding: 0 15px
+  box-sizing: border-box
+
+  a, a:hover
+    color: white
+    vertical-align: middle
+
+  .admin-link
+    color: white
+    display: inline-block
+    padding: 10px 0
+    text-decoration: none
+    vertical-align: middle
+    letter-spacing: 1px
+    font-size: 0.9em
+
+    img
+      height: 20px
+      vertical-align: middle
+      margin-right: 5px
+      position: relative
+      top: -2px
+
+  .toggle-switch
+    position: relative
+    top: 2px
+
+  p
+    margin: 0
+
+  .controls
+    position: absolute
+    right: 0
+    height: 100%
+
+  div
+    display: inline-block
+    vertical-align: middle
+    margin-left: 4px
+
+  .hide-admin
+    height: 100%
+    display: inline-block
+    text-decoration: none
+    color: white
+    margin-left: 10px
+    padding: 0 15px
+    cursor: pointer
+    border-left: 1px solid #888
+
+    input[type="submit"]
+      color: white
+      padding: 0
+      border: none
+      background: transparent
+
+    &:hover
+      background: #555
+
+    &:before
+      content: ''
+      display: inline-block
+      height: 100%
+      vertical-align: middle
+
+    > *
+      vertical-align: middle
+
+#zenpenbubble
+  input
+    color: white
+
+.toggle-switch
+  cursor: pointer
+
+  span
+    vertical-align: middle
+
+  .toggle-checkbox
+    border-radius: 15px
+    display: inline-block
+    vertical-align: middle
+    margin: 0 5px
+    border: 1px solid white
+    line-height: 15px
+    position: relative
+    width: 30px
+    padding: 3px 3px 1px 3px
+    transition: text-align 0.3s ease
+
+    i.circle
+      height: 14px
+      width: 14px
+      border-radius: 100%
+      background: white
+      display: inline-block
+
+  input[type="checkbox"]
+    display: none
+
+    &:checked
+      & ~ .toggle-checkbox
+        text-align: right
+        background: $green
+
+        i
+          background: white
+          box-shadow: 0 0 10px $green
+
+#phrasing-edit-mode
+  position: relative
+  top: -2px
