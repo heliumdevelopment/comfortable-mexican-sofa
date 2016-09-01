@@ -20,9 +20,8 @@ $(function() {
       if (!App.admin) {
         expirePage();
       } else {
-        $.getScript('/assets/phrasing', function() {
-          $('body').addClass('admin');
-        });
+        $('body').addClass('admin');
+        phrasing_setup();
       }
     }
   });

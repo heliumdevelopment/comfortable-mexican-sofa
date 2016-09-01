@@ -411,5 +411,3 @@ var phrasing_setup = function(){
   }
 
 };
-
-$(document).ready(phrasing_setup);
