@@ -1,5 +1,5 @@
 $(function() {
-  function expirePage() {
+  function expirePage(reload) {
     var $expire = $('#expire-template');
 
     $.ajax({
@@ -7,7 +7,9 @@ $(function() {
       method: 'post',
       data: $expire.serialize(),
       success: function(response) {
-        location.reload();
+        if (reload) {
+          location.reload();
+        }
       },
     });
   }
@@ -18,8 +20,9 @@ $(function() {
       // If we're not an admin in the page, we know we're working off an old
       // cached copy it. Bust it and reload.
       if (!App.admin) {
-        expirePage();
+        expirePage(true);
       } else {
+        expirePage();
         $('body').addClass('admin');
         phrasing_setup();
       }
