@@ -3,7 +3,11 @@ module Comfy
 
     def cms_template
       if @cms_page
-        "template-#{@cms_page.slug}"
+        if @cms_page.slug.blank?
+          "template-home"
+        else
+          "template-#{@cms_page.slug}"
+        end
       end
     end
 
