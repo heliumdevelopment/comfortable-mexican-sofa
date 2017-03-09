@@ -15,7 +15,7 @@ class Comfy::Cms::ContentController < Comfy::Cms::BaseController
 
   rescue_from ActiveRecord::RecordNotFound, :with => :page_not_found
 
-  caches_page :show, if: lambda { !current_comfy_user }
+  caches_page :show, if: lambda { !current_user }
 
   def show
     if @cms_page.target_page.present?
@@ -39,7 +39,7 @@ class Comfy::Cms::ContentController < Comfy::Cms::BaseController
   end
 
   def admin_editable
-    render json: current_user && current_comfy_user.manager?
+    render json: current_user
   end
 protected
 

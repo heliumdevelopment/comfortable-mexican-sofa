@@ -400,14 +400,5 @@ var phrasing_setup = function(){
     }
   });
 
-  if($.cookie("editing_mode") == null){
-    $.cookie("editing_mode", "true");
-    $('#edit-mode-onoffswitch').prop('checked', true)
-  }
-  else if($.cookie("editing_mode") == "true"){
-    $('#edit-mode-onoffswitch').prop('checked', true)
-  }else{
-    $('#edit-mode-onoffswitch').prop('checked', false)
-  }
-
+  $('.phrasable').removeClass("phrasable_on").attr("contenteditable", "false");
 };
