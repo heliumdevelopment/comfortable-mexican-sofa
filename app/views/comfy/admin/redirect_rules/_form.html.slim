@@ -6,15 +6,14 @@
       .field.ui.labeled.input
         .ui.label
           = @path
-        = f.text_field(:source, placeholder: "your-mom/goes/")
+        = f.text_field(:source, placeholder: "")
         
       .field
         label
           | New Path
+        p Begin with "/" to stay on #{@path}
         .field.ui.labeled.input
-          .ui.label
-            = @path
-          = f.text_field(:destination, placeholder: "to/college")
+          = f.text_field(:destination, placeholder: "")
           
       .two.fields
         .field
